@@ -29,6 +29,7 @@ __BEGIN_DECLS
 /**
  * The id of this module
  */
+#define SFDROID_SENSORS_HARDWARE_MODULE_ID "sfdroid_sensors"
 #define SENSORS_HARDWARE_MODULE_ID "sensors"
 
 /**
