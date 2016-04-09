@@ -157,7 +157,7 @@ int recv_status(int fd, int *failed)
             ALOGE("unknown status: %s", message_buffer);
         }
         *failed = 1;
-        return -1;
+        return 0;
     }
 
     return -1;
@@ -268,6 +268,11 @@ static int sb_post(struct sharebuffer_device_t* dev, buffer_handle_t buffer, uin
             if(recv_status(m->fd_renderer, &failed) < 0)
             {
                 ALOGW("recv_status failed: %s", strerror(errno));
+                goto exit_error;
+            }
+
+            if(failed)
+            {
                 goto exit_error;
             }
 
